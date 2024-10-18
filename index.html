@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="MiniGPT-5: Interleaved Vision-and-Language Generation via Generative Vokens">
+        content="EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing">
   <meta name="keywords" content="Multimodal Generation, Interleaved Vision-and-Language Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MiniGPT-5: Interleaved Vision-and-Language Generation via Generative Vokens</title>
+  <title>EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -48,24 +48,40 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MiniGPT-5: Interleaved Vision-and-Language Generation via Generative Vokens</h1>
+          <h1 class="title is-1 publication-title">EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://kzzheng.github.io/">Kaizhi Zheng</a><sup>*</sup>,</span>
+              <a href="https://kzzheng.github.io/">Kaizhi Zheng</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en">Xuehai He</a><sup>*</sup>,</span>
+              <a href="https://sites.google.com/umich.edu/xiaotong-chen/home">Xiaotong Chen</a><sup>3</sup>,</span>
             <span class="author-block">
-              <a href="https://eric-xw.github.io/">Xin Eric Wang</a>,</span>
+              <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en">Xuehai He</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://g-jing.github.io">Jing Gu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.microsoft.com/en-us/research/people/linjli/">Linjie Li</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://zyang-ur.github.io/">Zhengyuan Yang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/kevinlin311tw/me">Kevin Lin</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jianfengwang.me/">Jianfeng Wang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.microsoft.com/en-us/research/people/lijuanw/">Lijuan Wang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://eric-xw.github.io/">Xin Eric Wang</a><sup>1</sup>,</span>
           </div>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">University of California, Santa Cruz</span>
+            <span class="author-block"><sup>1</sup>University of California, Santa Cruz,</span>
+            <span class="author-block"><sup>2</sup>Microsoft,</span>
+            <span class="author-block"><sup>3</sup>University of Michigan, Ann Arbor</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2310.02239.pdf"
+                <a href="https://arxiv.org/pdf/2410.12836"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -74,7 +90,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2310.02239"
+                <a href="https://arxiv.org/abs/2410.12836"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -83,7 +99,7 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://github.com/eric-ai-lab/MiniGPT-5"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -91,7 +107,7 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span>
+              </span> -->
             </div>
 
           </div>
@@ -104,11 +120,13 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" width="150%" src="./static/images/teaser.png">
+      <img id="teaser" width="150%" src="./static/images/new_teaser-1.png">
       <h2 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman"><b>Figure 1. MiniGPT-5 is a unified model for interleaved vision-and-language 
-          comprehension and generation. Besides the original multimodal comprehension and text generation abilities, 
-          MiniGPT-5 can provide appropriate, coherent multimodal outputs. </b></p>
+        <p style="font-family:Times New Roman"><b>Figure 1. Editing Pipeline with <b>EditRoom</b>. <b>EditRoom</b> is a unified language-guided 3D scene layout 
+          editing framework that can automatically execute all layout editing types with natural language
+          commands, which includes the command parameterizer for natural language comprehension and
+          the scene editor for editing execution. Given a source scene and natural language commands, it can
+          generate a coherent and appropriate target scene. </b></p>
       </h2>
     </div>
   </div>
@@ -123,19 +141,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Large Language Models (LLMs) have garnered significant attention for their advancements 
-            in natural language processing, demonstrating unparalleled prowess in text comprehension 
-            and generation. Yet, the simultaneous generation of images with coherent textual narratives 
-            remains an evolving frontier. In response, we introduce an innovative interleaved 
-            vision-and-language generation technique anchored by the concept of "generative vokens", 
-            acting as the bridge for harmonized image-text outputs. 
-            Our approach is characterized by a distinctive two-staged training strategy focusing on 
-            description-free multimodal generation, where the training requires no comprehensive 
-            descriptions of images. To bolster model integrity, classifier-free guidance is incorporated, 
-            enhancing the effectiveness of vokens on image generation. 
-            Our model, <b>MiniGPT-5</b>, exhibits substantial improvement over the baseline Divter model 
-            on the MMDialog dataset and consistently delivers superior or comparable multimodal outputs 
-            in human evaluations on the VIST dataset, highlighting its efficacy across diverse benchmarks.
+            Given the steep learning curve of professional 3D software and the timeconsuming process of managing large 3D assets, language-guided 3D scene editing has significant potential in fields such as virtual reality, augmented reality, and
+            gaming. However, recent approaches to language-guided 3D scene editing either
+            require manual interventions or focus only on appearance modifications without
+            supporting comprehensive scene layout changes. In response, we propose <b>EditRoom</b>, a unified framework capable of executing a variety of layout edits through
+            natural language commands, without requiring manual intervention. Specifically,
+            <b>EditRoom</b> leverages Large Language Models (LLMs) for command planning and
+            generates target scenes using a diffusion-based method, enabling six types of edits: rotate, translate, scale, replace, add, and remove. To address
+            the lack of data for language-guided 3D scene editing, we have developed an automatic pipeline to augment existing 3D scene synthesis datasets and introduced
+            <b>EditRoom-DB</b>, a large-scale dataset with 83k editing pairs, for training and evaluation. Our experiments demonstrate that our approach consistently outperforms
+            other baselines across all metrics, indicating higher accuracy and coherence in
+            language-guided scene layout editing.
           </p>
         </div>
       </div>
@@ -149,7 +165,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Interleaved Vision-and-Language Generation via LLMs </h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Unified Scene Layout Editing </h2> 
       </div>
     </div>
 
@@ -157,14 +173,17 @@
           <div class="column is-six-fifths">
             <div class="content has-text-justified">
               <ul>
-                <li>We leverage the pretrained multimodal large language model (MiniGPT-4) and text-to-image generation model (Stable Diffusion 2.1) to create a unified multimodal generation pipeline. </li>
-                <li>We added vokens into LLM's vocabulary and align the voken features with stable diffusion conditional features.</li>
-                <li>Text Generation Loss help model learn voken positions while Conditional Latent Denoising Loss guide the model to predicate appropriate features</li>
+                <li>We leverage the pretrained multimodal large language model (GPT-4o) as command parameterizer and graph diffusion-based method as scene editor to create a unified scene layout editing pipeline. </li>
+                <li>Larget language model can convert natural language commands into breakdown commands by given source scene information. </li>
+                <li>SceneEditor take the breakdown commands and source scene as input, and it can first generate the abstract target scene graph, then it will estimate the accurate target scene layout.</li>
               </ul>
             </div>        
-            <img id="model" width="100%" src="./static/images/structure.png">
+            <img id="model" width="100%" src="./static/images/editor_method-1.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. MiniGPT-5 pipeline.</b></p>
+              <p style="font-family:Times New Roman"><b>Figure 2. Scene Editor aims to provide accurate, coherent editing results according to the given source scene and language commands. 
+                It consists of two graph transformer-based conditional diffusion models. One diffusion model generates semantic target scene graphs. 
+                Another diffusion model can estimate accurate poses and size information for each object inside the generated target scene graphs. 
+                All diffusion processes are conditioned on the source scene and breakdown command.</b></p>
             </h3>   
 
 
@@ -183,12 +202,16 @@
           <div class="column is-six-fifths">
             <div class="content has-text-justified">
               <p>
-                Qualitative examples from <b>MiniGPT-5</b> and baselines on the CC3M, VIST, and MMDialog datasets.  From the comparisons, we can find the <b>MiniGPT-5</b> and SD 2 have similar results on single-image generation. When we evaluate with multi-step multimodal prompts, <b>MiniGPT-5</b> can produce more coherent and high-quality images.
+                Qualitative examples from <b>EditRoom</b> and baselines on single- and multi-operation editing.  From the comparisons, we can find the <b>EditRoom</b> can provide more accurate and coherent editing results than other baselines, and it can generalize to multi-operation editing tasks without training on such data.
               </p>
             </div>        
-            <img id="model" width="100%" src="./static/images/compare-arxiv.png">
+            <img id="model" width="100%" src="./static/images/single_6actions-1.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Comparison with other baselines. </b></p>
+              <p style="font-family:Times New Roman"><b>Figure 3. Comparison with other baselines on single-operation editing. </b></p>
+            </h3>
+            <img id="model" width="100%" src="./static/images/multi-1.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 4. Comparison with other baselines on multi-operation editing. </b></p>
             </h3>   
         </div>
   </div>
@@ -197,11 +220,14 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{zheng2023minigpt5,
-      title={MiniGPT-5: Interleaved Vision-and-Language Generation via Generative Vokens}, 
-      author={Kaizhi Zheng and Xuehai He and Xin Eric Wang},
-      year={2023},
-      journal={arXiv preprint arXiv:2310.02239}
+    <pre><code>@misc{zheng2024editroomllmparameterizedgraphdiffusion,
+      title={EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing}, 
+      author={Kaizhi Zheng and Xiaotong Chen and Xuehai He and Jing Gu and Linjie Li and Zhengyuan Yang and Kevin Lin and Jianfeng Wang and Lijuan Wang and Xin Eric Wang},
+      year={2024},
+      eprint={2410.12836},
+      archivePrefix={arXiv},
+      primaryClass={cs.GR},
+      url={https://arxiv.org/abs/2410.12836}, 
     }
     </code></pre>
   </div>
