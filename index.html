@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="[ICLR 2025] EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing">
-  <meta name="keywords" content="Multimodal Generation, Interleaved Vision-and-Language Generation">
+        content="3DTown: Constructing a 3D Town from a Single Image">
+  <meta name="keywords" content="3D Scene Generation, 3D Town, Image to 3D">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing</title>
+  <title>3DTown: Constructing a 3D Town from a Single Image</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -48,40 +48,30 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">EditRoom: LLM-parameterized Graph Diffusion for Composable 3D Room Layout Editing</h1>
+          <h1 class="title is-1 publication-title">3DTown: Constructing a 3D Town from a Single Image</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://kzzheng.github.io/">Kaizhi Zheng</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://sites.google.com/umich.edu/xiaotong-chen/home">Xiaotong Chen</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=kDzxOzUAAAAJ&hl=en">Xuehai He</a><sup>1</sup>,</span>
+              <a href="">Ruijian Zhang</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://g-jing.github.io">Jing Gu</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.microsoft.com/en-us/research/people/linjli/">Linjie Li</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://zyang-ur.github.io/">Zhengyuan Yang</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://sites.google.com/site/kevinlin311tw/me">Kevin Lin</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jianfengwang.me/">Jianfeng Wang</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://www.microsoft.com/en-us/research/people/lijuanw/">Lijuan Wang</a><sup>2</sup>,</span>
+              <a href="https://www.linkedin.com/in/cnjieyang">Jie Yang</a><sup>3</sup>,</span>
             <span class="author-block">
               <a href="https://eric-xw.github.io/">Xin Eric Wang</a><sup>1</sup>,</span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of California, Santa Cruz,</span>
-            <span class="author-block"><sup>2</sup>Microsoft,</span>
-            <span class="author-block"><sup>3</sup>University of Michigan, Ann Arbor</span>
+            <span class="author-block"><sup>2</sup>Columbia University,</span>
+            <span class="author-block"><sup>3</sup>Cybever AI</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2410.12836"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -90,7 +80,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2410.12836"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -100,12 +90,12 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/eric-ai-lab/EditRoom"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Releasing Soon)</span>
                   </a>
               </span>
             </div>
@@ -120,13 +110,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" width="150%" src="./static/images/new_teaser-1.png">
+      <img id="teaser" width="150%" src="./static/images/3D_Town_teaser.png">
       <h2 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman"><b>Figure 1. Editing Pipeline with <b>EditRoom</b>. <b>EditRoom</b> is a unified language-guided 3D scene layout 
-          editing framework that can automatically execute all layout editing types with natural language
-          commands, which includes the command parameterizer for natural language comprehension and
-          the scene editor for editing execution. Given a source scene and natural language commands, it can
-          generate a coherent and appropriate target scene. </b></p>
+        <p style="font-family:Times New Roman">Figure 1. <b>3D Scene Generation from a Single Image.</b> Given a top-down reference image (center), <b>3DTown</b> generates coherent and realistic 3D scenes that preserves geometry, texture, and layout compared to other state-of-the-art image-to-3D generation models. Our method also generalizes across diverse styles (right), producing high-quality outputs without any 3D training.</p>
       </h2>
     </div>
   </div>
@@ -141,17 +127,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Given the steep learning curve of professional 3D software and the timeconsuming process of managing large 3D assets, language-guided 3D scene editing has significant potential in fields such as virtual reality, augmented reality, and
-            gaming. However, recent approaches to language-guided 3D scene editing either
-            require manual interventions or focus only on appearance modifications without
-            supporting comprehensive scene layout changes. In response, we propose <b>EditRoom</b>, a unified framework capable of executing a variety of layout edits through
-            natural language commands, without requiring manual intervention. Specifically,
-            <b>EditRoom</b> leverages Large Language Models (LLMs) for command planning and
-            generates target scenes using a diffusion-based method, enabling six types of edits: rotate, translate, scale, replace, add, and remove. To address
-            the lack of data for language-guided 3D scene editing, we have developed an automatic pipeline to augment existing 3D scene synthesis datasets and introduced
-            <b>EditRoom-DB</b>, a large-scale dataset with 83k editing pairs, for training and evaluation. Our experiments demonstrate that our approach consistently outperforms
-            other baselines across all metrics, indicating higher accuracy and coherence in
-            language-guided scene layout editing.
+            Acquiring detailed 3D scenes typically demands costly equipment, multi-view data, or labor-intensive modeling. Therefore, a lightweight alternative, generating complex 3D scenes from a single top-down image, plays an essential role in real-world applications. While recent 3D generative models have achieved remarkable results at the object level, their extension to full-scene generation often leads to inconsistent geometry, layout hallucinations, and low-quality meshes.
+In this work, we introduce <b>3DTown</b>, a training-free framework designed to synthesize realistic and coherent 3D scenes from a single top-down view. Our method is grounded in two principles: region-based generation to improve image-to-3D alignment and resolution, and spatial-aware 3D inpainting to ensure global scene coherence and high-quality geometry generation. Specifically, we decompose the input image into overlapping regions and generate each using a pretrained 3D object generator, followed by a masked rectified flow inpainting process that fills in missing geometry while maintaining structural continuity. This modular design allows us to overcome resolution bottlenecks and preserve spatial structure without requiring 3D supervision or fine-tuning.
+Extensive experiments across diverse scenes show that 3DTown outperforms state-of-the-art baselines, including Trellis, Hunyuan3D-2, and TripoSG, in terms of geometry quality, spatial coherence, and texture fidelity. Our results demonstrate that high-quality 3D town generation is achievable from a single image using a principled, training-free approach.
           </p>
         </div>
       </div>
@@ -165,7 +143,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Unified Scene Layout Editing </h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Spatial-aware Region-based 3D Scene Generation </h2> 
       </div>
     </div>
 
@@ -173,17 +151,14 @@
           <div class="column is-six-fifths">
             <div class="content has-text-justified">
               <ul>
-                <li>We leverage the pretrained multimodal large language model (GPT-4o) as command parameterizer and graph diffusion-based method as scene editor to create a unified scene layout editing pipeline. </li>
-                <li>Larget language model can convert natural language commands into breakdown commands by given source scene information. </li>
-                <li>SceneEditor take the breakdown commands and source scene as input, and it can first generate the abstract target scene graph, then it will estimate the accurate target scene layout.</li>
+                <li>We propose 3DTown, a training-free framework for generating structured 3D scenes from a single top-down image, leveraging pretrained object-centric generators for zero-shot scene asset synthesis. </li>
+                <li>We develop a modular generation strategy that combines region-wise latent synthesis with spatial-aware 3D inpainting, effectively addressing resolution bottlenecks, image-geometry misalignment, and inter-region inconsistency. </li>
+                <li>We conduct comprehensive evaluations on diverse scenes and show that 3DTown outperforms state-of-the-art baselines (Trellis, Hunyuan3D-2, and TripoSG) in geometry quality, layout coherence, and texture realism under both human and GPT-4o-based assessments.</li>
               </ul>
             </div>        
-            <img id="model" width="100%" src="./static/images/editor_method-1.png">
+            <img id="model" width="100%" src="./static/images/3D_Town_method.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. Scene Editor aims to provide accurate, coherent editing results according to the given source scene and language commands. 
-                It consists of two graph transformer-based conditional diffusion models. One diffusion model generates semantic target scene graphs. 
-                Another diffusion model can estimate accurate poses and size information for each object inside the generated target scene graphs. 
-                All diffusion processes are conditioned on the source scene and breakdown command.</b></p>
+              <p style="font-family:Times New Roman"><b>Figure 2. Given a single top-down image, we first estimate a coarse scene structure via monocular depth and landmark extraction to initialize the scene latent (Spatial Prior Initialization). The scene is divided into overlapping regions for localized synthesis and progressively fused into a coherent global latent (Region-based Generation & Fusion). Each region is completed using a two-stage masked rectified flow pipeline with a sparse structure generator and a structured latent generator (Spatial-aware 3D Completion). The final 3D scene is decoded from the completed structured latent.</b></p>
             </h3>   
 
 
@@ -202,22 +177,18 @@
           <div class="column is-six-fifths">
             <div class="content has-text-justified">
               <p>
-                Qualitative examples from <b>EditRoom</b> and baselines on single- and multi-operation editing.  From the comparisons, we can find the <b>EditRoom</b> can provide more accurate and coherent editing results than other baselines, and it can generalize to multi-operation editing tasks without training on such data.
+                Qualitative examples from <b>3DTown</b> and baselines on 3D scene asset generation from single images.  From the comparisons, we can find the <b>3DTown</b> can provide more coherent and fine-grained 3D scenes than other baselines in various scene styles.
               </p>
             </div>        
-            <img id="model" width="100%" src="./static/images/single_6actions-1.png">
+            <img id="model" width="100%" src="./static/images/3D_Town_comparision.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Comparison with other baselines on single-operation editing. </b></p>
+              <p style="font-family:Times New Roman"><b>Figure 3. Comparison with other baselines on 3D scene generation. </b></p>
             </h3>
-            <img id="model" width="100%" src="./static/images/multi-1.png">
-            <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 4. Comparison with other baselines on multi-operation editing. </b></p>
-            </h3>   
         </div>
   </div>
 </section>
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{
@@ -229,7 +200,7 @@
       }
     </code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
