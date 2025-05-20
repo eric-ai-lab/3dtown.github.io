@@ -126,7 +126,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
+          <p style="font-family:Times New Roman">
             Acquiring detailed 3D scenes typically demands costly equipment, multi-view data, or labor-intensive modeling. Therefore, a lightweight alternative, generating complex 3D scenes from a single top-down image, plays an essential role in real-world applications. While recent 3D generative models have achieved remarkable results at the object level, their extension to full-scene generation often leads to inconsistent geometry, layout hallucinations, and low-quality meshes.
 In this work, we introduce <b>3DTown</b>, a training-free framework designed to synthesize realistic and coherent 3D scenes from a single top-down view. Our method is grounded in two principles: region-based generation to improve image-to-3D alignment and resolution, and spatial-aware 3D inpainting to ensure global scene coherence and high-quality geometry generation. Specifically, we decompose the input image into overlapping regions and generate each using a pretrained 3D object generator, followed by a masked rectified flow inpainting process that fills in missing geometry while maintaining structural continuity. This modular design allows us to overcome resolution bottlenecks and preserve spatial structure without requiring 3D supervision or fine-tuning.
 Extensive experiments across diverse scenes show that 3DTown outperforms state-of-the-art baselines, including Trellis, Hunyuan3D-2, and TripoSG, in terms of geometry quality, spatial coherence, and texture fidelity. Our results demonstrate that high-quality 3D town generation is achievable from a single image using a principled, training-free approach.
@@ -158,7 +158,7 @@ Extensive experiments across diverse scenes show that 3DTown outperforms state-o
             </div>        
             <img id="model" width="100%" src="./static/images/3D_Town_method.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. Given a single top-down image, we first estimate a coarse scene structure via monocular depth and landmark extraction to initialize the scene latent (Spatial Prior Initialization). The scene is divided into overlapping regions for localized synthesis and progressively fused into a coherent global latent (Region-based Generation & Fusion). Each region is completed using a two-stage masked rectified flow pipeline with a sparse structure generator and a structured latent generator (Spatial-aware 3D Completion). The final 3D scene is decoded from the completed structured latent.</b></p>
+              <p style="font-family:Times New Roman">Figure 2. Given a single top-down image, we first estimate a coarse scene structure via monocular depth and landmark extraction to initialize the scene latent (Spatial Prior Initialization). The scene is divided into overlapping regions for localized synthesis and progressively fused into a coherent global latent (Region-based Generation & Fusion). Each region is completed using a two-stage masked rectified flow pipeline with a sparse structure generator and a structured latent generator (Spatial-aware 3D Completion). The final 3D scene is decoded from the completed structured latent.</p>
             </h3>   
 
 
@@ -182,7 +182,7 @@ Extensive experiments across diverse scenes show that 3DTown outperforms state-o
             </div>        
             <img id="model" width="100%" src="./static/images/3D_Town_comparision.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Comparison with other baselines on 3D scene generation. </b></p>
+              <p style="font-family:Times New Roman">Figure 3. Comparison with other baselines on 3D scene generation.</p>
             </h3>
         </div>
   </div>
